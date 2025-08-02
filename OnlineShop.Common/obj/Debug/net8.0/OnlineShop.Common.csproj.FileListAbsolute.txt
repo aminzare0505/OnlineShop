@@ -1,0 +1,11 @@
+E:\Amozesh Programing\CQRS TopLearn\Project\OnlineShop\OnlineShop.Common\bin\Debug\net8.0\OnlineShop.Common.deps.json
+E:\Amozesh Programing\CQRS TopLearn\Project\OnlineShop\OnlineShop.Common\bin\Debug\net8.0\OnlineShop.Common.dll
+E:\Amozesh Programing\CQRS TopLearn\Project\OnlineShop\OnlineShop.Common\bin\Debug\net8.0\OnlineShop.Common.pdb
+E:\Amozesh Programing\CQRS TopLearn\Project\OnlineShop\OnlineShop.Common\obj\Debug\net8.0\OnlineShop.Common.GeneratedMSBuildEditorConfig.editorconfig
+E:\Amozesh Programing\CQRS TopLearn\Project\OnlineShop\OnlineShop.Common\obj\Debug\net8.0\OnlineShop.Common.AssemblyInfoInputs.cache
+E:\Amozesh Programing\CQRS TopLearn\Project\OnlineShop\OnlineShop.Common\obj\Debug\net8.0\OnlineShop.Common.AssemblyInfo.cs
+E:\Amozesh Programing\CQRS TopLearn\Project\OnlineShop\OnlineShop.Common\obj\Debug\net8.0\OnlineShop.Common.csproj.CoreCompileInputs.cache
+E:\Amozesh Programing\CQRS TopLearn\Project\OnlineShop\OnlineShop.Common\obj\Debug\net8.0\OnlineShop.Common.dll
+E:\Amozesh Programing\CQRS TopLearn\Project\OnlineShop\OnlineShop.Common\obj\Debug\net8.0\refint\OnlineShop.Common.dll
+E:\Amozesh Programing\CQRS TopLearn\Project\OnlineShop\OnlineShop.Common\obj\Debug\net8.0\OnlineShop.Common.pdb
+E:\Amozesh Programing\CQRS TopLearn\Project\OnlineShop\OnlineShop.Common\obj\Debug\net8.0\ref\OnlineShop.Common.dll
