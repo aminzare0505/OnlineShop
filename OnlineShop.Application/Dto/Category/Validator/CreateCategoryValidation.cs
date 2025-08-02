@@ -14,7 +14,7 @@ namespace OnlineShop.Application.Dto.Category.Validator
     {
         public CreateCategoryValidation()
         {
-            RuleFor(x => x.Name).NotEmpty().NotNull().WithMessage("Category Name is required");
+            RuleFor(x => x.Name).NotEmpty().WithMessage("Category Name is required");
             RuleFor(x => x.Des).MaximumLength(200).WithMessage("Max Length of Description is 200 characters");
         }
         public static async Task<VoidResult> CreateCategoryValidate(CategoryCreateDto categoryCreateDto)
