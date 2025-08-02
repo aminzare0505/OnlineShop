@@ -1,0 +1,11 @@
+/.vs
+/OnlineShop.Api/obj
+/OnlineShop.Api/bin
+/OnlineShop.Application/bin
+/OnlineShop.Application/obj
+/OnlineShop.Common/bin
+/OnlineShop.Common/obj
+/OnlineShop.Domain/obj
+/OnlineShop.Domain/bin
+/OnlineShop.Persistence/bin
+/OnlineShop.Persistence/obj
