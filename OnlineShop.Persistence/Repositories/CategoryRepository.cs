@@ -1,4 +1,5 @@
-﻿using OnlineShop.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using OnlineShop.Domain.Entities;
 using OnlineShop.Domain.IRepositories;
 using OnlineShop.Persistence.Context;
 using System;
@@ -11,8 +12,15 @@ namespace OnlineShop.Persistence.Repositories
 {
     public class CategoryRepository : GenericRepository<Category>, ICategoryRepository
     {
+        private readonly ShopDbContext _dbContext;
         public CategoryRepository(ShopDbContext dbContext) : base(dbContext)
         {
+            _dbContext = dbContext;
+        }
+
+        public async Task<bool> CheckExistCatgery(int id)
+        {
+            return await _dbContext.Categories.AnyAsync(a=>a.Id==id);
         }
     }
 }

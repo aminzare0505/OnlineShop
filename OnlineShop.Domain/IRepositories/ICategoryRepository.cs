@@ -9,5 +9,6 @@ namespace OnlineShop.Domain.IRepositories
 {
     public interface ICategoryRepository:IGenericRepository<Category>
     {
+        Task<bool> CheckExistCatgery(int id);
     }
 }
