@@ -16,10 +16,12 @@ namespace OnlineShop.Persistence.Context
         {
         }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Product> products { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder); 
             modelBuilder.ApplyConfiguration(new CategoryValidator());
+            modelBuilder.ApplyConfiguration(new ProductValidator());
         }
     }
 }

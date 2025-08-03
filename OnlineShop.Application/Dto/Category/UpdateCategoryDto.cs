@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Application.Dto.Category
 {
-    public class CategoryUpdateDto:BaseDto
+    public class UpdateCategoryDto : BaseDto
     {
         public string Name { get; set; }
         public string Des { get; set; }

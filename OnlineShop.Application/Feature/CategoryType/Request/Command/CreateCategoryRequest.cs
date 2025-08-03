@@ -11,6 +11,6 @@ namespace OnlineShop.Application.Feature.CategoryType.Request.Command
 {
     public class CreateCategoryRequest:IRequest<VoidResult>
     {
-        public CategoryCreateDto CategoryCreateRequest{ get; set; }
+        public CreateCategoryDto CategoryCreateRequest { get; set; }
     }
 }

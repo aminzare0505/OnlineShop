@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using OnlineShop.Domain.Repositories;
+using OnlineShop.Domain.IRepositories;
 using OnlineShop.Persistence.Context;
 using OnlineShop.Persistence.Repositories;
 using System;
@@ -17,6 +17,7 @@ namespace OnlineShop.Persistence
         public static IServiceCollection PersistenceConfiguration(this IServiceCollection service, IConfiguration config)
         {
             service.AddScoped<ICategoryRepository, CategoryRepository>();
+            service.AddScoped<IProductRepository, ProductRepository>();
             service.AddDbContext<ShopDbContext>(opt=>opt.UseSqlServer(config.GetConnectionString("OnlineShopConnectionString")));
             return service;
         }

@@ -11,6 +11,6 @@ namespace OnlineShop.Application.Feature.CategoryType.Request.Command
 {
     public class UpdateCategoryRequest:IRequest<VoidResult>
     {
-        public CategoryUpdateDto CategoryUpdateRequest{ get; set; }
+        public UpdateCategoryDto UpdateCategoryDto { get; set; }
     }
 }

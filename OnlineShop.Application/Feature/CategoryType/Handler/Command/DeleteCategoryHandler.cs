@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using OnlineShop.Application.Feature.CategoryType.Request.Command;
 using OnlineShop.Common.ResultPattern;
-using OnlineShop.Domain.Repositories;
+using OnlineShop.Domain.IRepositories;
 using OnlineShop.Persistence.Repositories;
 using System;
 using System.Collections.Generic;

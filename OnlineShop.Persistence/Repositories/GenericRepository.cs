@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OnlineShop.Domain.Repositories;
+using OnlineShop.Domain.IRepositories;
 using OnlineShop.Persistence.Context;
 using System;
 using System.Collections.Generic;

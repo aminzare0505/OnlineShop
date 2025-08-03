@@ -21,9 +21,9 @@ namespace OnlineShop.Api.Controllers.Catgeory
             return Ok(result);
         }
         [HttpPost("Add")]
-        public async Task<IActionResult> Add(CategoryCreateDto categoryCreateDto)
+        public async Task<IActionResult> Add(CreateCategoryDto createCategoryDto)
         {
-            var result = await _mediator.Send(new CreateCategoryRequest() { CategoryCreateRequest = categoryCreateDto });
+            var result = await _mediator.Send(new CreateCategoryRequest() { CategoryCreateRequest = createCategoryDto });
             return Ok(result);
         }
         [HttpGet("GetAll")]
@@ -39,9 +39,9 @@ namespace OnlineShop.Api.Controllers.Catgeory
             return Ok(result);
         }
         [HttpPut("Update")]
-        public async Task<IActionResult> Update(CategoryUpdateDto categoryUpdateDto)
+        public async Task<IActionResult> Update(UpdateCategoryDto updateCategoryDto)
         {
-            var result = await _mediator.Send(new UpdateCategoryRequest() { CategoryUpdateRequest = categoryUpdateDto });
+            var result = await _mediator.Send(new UpdateCategoryRequest() { UpdateCategoryDto = updateCategoryDto });
             return Ok(result);
         }
     }

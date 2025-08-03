@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlineShop.Domain.Repositories
+namespace OnlineShop.Domain.IRepositories
 {
     public interface ICategoryRepository:IGenericRepository<Category>
     {

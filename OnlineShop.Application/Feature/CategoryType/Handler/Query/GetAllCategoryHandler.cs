@@ -3,7 +3,7 @@ using OnlineShop.Application.Dto.Category;
 using OnlineShop.Application.Feature.CategoryType.Request.Command;
 using OnlineShop.Application.Feature.CategoryType.Request.Query;
 using OnlineShop.Common.ResultPattern;
-using OnlineShop.Domain.Repositories;
+using OnlineShop.Domain.IRepositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;

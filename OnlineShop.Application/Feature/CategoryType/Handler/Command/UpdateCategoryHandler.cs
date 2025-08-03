@@ -2,7 +2,7 @@
 using OnlineShop.Application.Dto.Category.Validator;
 using OnlineShop.Application.Feature.CategoryType.Request.Command;
 using OnlineShop.Common.ResultPattern;
-using OnlineShop.Domain.Repositories;
+using OnlineShop.Domain.IRepositories;
 using OnlineShop.Persistence.Repositories;
 using System;
 using System.Collections.Generic;
@@ -21,19 +21,19 @@ namespace OnlineShop.Application.Feature.CategoryType.Handler.Command
         }
         public async Task<VoidResult> Handle(UpdateCategoryRequest request, CancellationToken cancellationToken)
         {
-            var IsValid = await UpdateCategoryValidation.UpdateCategoryValidate(request.CategoryUpdateRequest);
+            var IsValid = await UpdateCategoryValidation.UpdateCategoryValidate(request.UpdateCategoryDto);
             if (!IsValid.IsSuccess)
                 return IsValid;
-            var Category = await _categoryRepository.Get(request.CategoryUpdateRequest.Id);
+            var Category = await _categoryRepository.Get(request.UpdateCategoryDto.Id);
             if (Category != null)
             {
-                if (!string.IsNullOrWhiteSpace(request.CategoryUpdateRequest.Name))
+                if (!string.IsNullOrWhiteSpace(request.UpdateCategoryDto.Name))
                 {
-                    Category.Name = request.CategoryUpdateRequest.Name;
+                    Category.Name = request.UpdateCategoryDto.Name;
                 }
-                if (!string.IsNullOrWhiteSpace(request.CategoryUpdateRequest.Des))
+                if (!string.IsNullOrWhiteSpace(request.UpdateCategoryDto.Des))
                 {
-                    Category.Des = request.CategoryUpdateRequest.Des;
+                    Category.Des = request.UpdateCategoryDto.Des;
                 }
                 await _categoryRepository.Update(Category);
                 return VoidResult.VoidSuccessResult();

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Application.Dto.Category.Validator
 {
-    public class UpdateCategoryValidation : AbstractValidator<CategoryUpdateDto>
+    public class UpdateCategoryValidation : AbstractValidator<UpdateCategoryDto>
     {
         public UpdateCategoryValidation()
         {
@@ -16,7 +16,7 @@ namespace OnlineShop.Application.Dto.Category.Validator
             RuleFor(x => x.Name).NotEmpty().NotNull().WithMessage("Category Name is required");
             RuleFor(x => x.Des).MaximumLength(200).WithMessage("Max Length of Description is 200 characters");
         }
-        public static async Task<VoidResult> UpdateCategoryValidate(CategoryUpdateDto categoryUpdateDto)
+        public static async Task<VoidResult> UpdateCategoryValidate( UpdateCategoryDto categoryUpdateDto)
         {
             var IsValid = await new UpdateCategoryValidation().ValidateAsync(categoryUpdateDto);
             if (!IsValid.IsValid)

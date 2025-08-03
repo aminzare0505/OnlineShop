@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Persistence.Repositories
 {
-    public class CategoryRepository : GenericRepository<Category>, ICategoryRepository
+    public class ProductRepository : GenericRepository<Product>, IProductRepository
     {
-        public CategoryRepository(ShopDbContext dbContext) : base(dbContext)
+        public ProductRepository(ShopDbContext dbContext) : base(dbContext)
         {
         }
     }
