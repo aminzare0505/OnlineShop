@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using OnlineShop.Application.Dto.Product;
+using OnlineShop.Application.Dto.User;
 using OnlineShop.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,9 @@ namespace OnlineShop.Application.Profiler
             CreateMap<Product, ProductDto>().ReverseMap();
             CreateMap<Product, CreateProductDto>().ReverseMap();
             CreateMap<Product, UpdateProductDto>().ReverseMap();
+            CreateMap<User, CreateUserDto>().ReverseMap();
+            CreateMap<User, UpdateUserDto>().ReverseMap();
+            CreateMap<User, UserDto>().ReverseMap();
         }
     }
 }

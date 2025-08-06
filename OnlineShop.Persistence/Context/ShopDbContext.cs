@@ -17,11 +17,13 @@ namespace OnlineShop.Persistence.Context
         }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> products { get; set; }
+        public DbSet<User> User { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder); 
             modelBuilder.ApplyConfiguration(new CategoryValidator());
             modelBuilder.ApplyConfiguration(new ProductValidator());
+            modelBuilder.ApplyConfiguration(new UserValidator());
         }
     }
 }

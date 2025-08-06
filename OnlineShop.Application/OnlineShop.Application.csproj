@@ -18,4 +18,9 @@
     <ProjectReference Include="..\OnlineShop.Persistence\OnlineShop.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Feature\UserType\Handler\Query\" />
+    <Folder Include="Feature\UserType\Request\Query\" />
+  </ItemGroup>
+
 </Project>

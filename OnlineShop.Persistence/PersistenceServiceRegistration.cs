@@ -18,6 +18,7 @@ namespace OnlineShop.Persistence
         {
             service.AddScoped<ICategoryRepository, CategoryRepository>();
             service.AddScoped<IProductRepository, ProductRepository>();
+            service.AddScoped<IUserRepository,UserRepository>();
             service.AddDbContext<ShopDbContext>(opt=>opt.UseSqlServer(config.GetConnectionString("OnlineShopConnectionString")));
             return service;
         }
