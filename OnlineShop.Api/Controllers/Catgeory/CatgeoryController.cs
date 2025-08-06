@@ -6,11 +6,11 @@ using OnlineShop.Application.Feature.CategoryType.Request.Query;
 
 namespace OnlineShop.Api.Controllers.Catgeory
 {
-    public class CatgeoryController : BaseController
+    public class CategoryController : BaseController
     {
         private readonly IMediator _mediator;
 
-        public CatgeoryController(IMediator mediator)
+        public CategoryController(IMediator mediator)
         {
             _mediator = mediator;
         }

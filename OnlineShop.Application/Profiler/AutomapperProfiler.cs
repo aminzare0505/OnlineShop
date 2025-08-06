@@ -14,8 +14,8 @@ namespace OnlineShop.Application.Profiler
         public AutomapperProfiler()
         {
             CreateMap<Product, ProductDto>().ReverseMap();
-            CreateMap<Product, CreateProductDto>();
-            CreateMap<Product, UpdateProductDto>();
+            CreateMap<Product, CreateProductDto>().ReverseMap();
+            CreateMap<Product, UpdateProductDto>().ReverseMap();
         }
     }
 }
