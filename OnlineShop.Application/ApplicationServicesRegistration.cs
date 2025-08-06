@@ -11,9 +11,10 @@ namespace OnlineShop.Application
 {
     public static class ApplicationServicesRegistration
     {
-        public static IServiceCollection ApplicationCpnfiguration(this IServiceCollection Service)
+        public static IServiceCollection ApplicationConfiguration(this IServiceCollection Service)
         {
             Service.AddMediatR(Assembly.GetExecutingAssembly());
+            Service.AddAutoMapper(Assembly.GetExecutingAssembly());
             return Service;
         }
     }

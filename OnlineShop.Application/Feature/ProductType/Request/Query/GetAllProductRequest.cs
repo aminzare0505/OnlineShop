@@ -7,10 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlineShop.Application.Feature.ProductType.Request.Command
+namespace OnlineShop.Application.Feature.ProductType.Request.Query
 {
-    public class UpdateProductRequest:IRequest<VoidResult>
+    public class GetAllProductRequest:IRequest<Result<List<ProductDto>>>
     {
-        public UpdateProductDto UpdateProductDto { get; set; }
+
     }
 }
