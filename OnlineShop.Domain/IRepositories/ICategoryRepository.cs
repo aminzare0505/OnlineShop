@@ -10,5 +10,7 @@ namespace OnlineShop.Domain.IRepositories
     public interface ICategoryRepository:IGenericRepository<Category>
     {
         Task<bool> CheckExistCatgery(int id);
+        Task EventOccured(Category category, string evt);
+        Task<Category> AddWithReturn(Category category);
     }
 }

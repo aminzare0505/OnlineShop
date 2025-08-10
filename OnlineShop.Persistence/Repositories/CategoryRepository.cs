@@ -20,7 +20,21 @@ namespace OnlineShop.Persistence.Repositories
 
         public async Task<bool> CheckExistCatgery(int id)
         {
-            return await _dbContext.Categories.AnyAsync(a=>a.Id==id);
+            return await _dbContext.Categories.AnyAsync(a => a.Id == id);
         }
+        public async Task EventOccured(Category category, string evt)
+        {
+            _dbContext.Categories.Single(c => c.Id == category.Id).Name = $"{category.Name} evt: {evt}";
+            await Task.CompletedTask;
+
+        }
+        public async Task<Category> AddWithReturn(Category category)
+        {
+            var categoryEntity = await _dbContext.AddAsync(category);
+            await _dbContext.SaveChangesAsync();
+            return categoryEntity.Entity;
+
+        }
+
     }
 }

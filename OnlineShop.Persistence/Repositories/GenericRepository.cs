@@ -17,7 +17,7 @@ namespace OnlineShop.Persistence.Repositories
             _dbContext = dbContext;
 
         }
-        public async Task Add(TEntity entity)
+        public   async Task Add(TEntity entity)
         {
             await _dbContext.AddAsync(entity);
             await _dbContext.SaveChangesAsync();
