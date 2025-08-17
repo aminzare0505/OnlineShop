@@ -9,11 +9,13 @@ namespace OnlineShop.Api.Controllers.Catgeory
 {
     public class CategoryController : BaseController
     {
+        private readonly ISender _sender;
         private readonly IMediator _mediator;
 
-        public CategoryController(IMediator mediator)
+        public CategoryController(IMediator mediator, ISender sender)
         {
             _mediator = mediator;
+            _sender = sender;
         }
         [HttpGet("Get/{Id}")]
         public  async Task<IActionResult> Get(int id)
@@ -25,6 +27,12 @@ namespace OnlineShop.Api.Controllers.Catgeory
         public async Task<IActionResult> Add(CreateCategoryDto createCategoryDto)
         {
             var result = await _mediator.Send(new CreateCategoryRequest() { CategoryCreateRequest = createCategoryDto });
+            return Ok(result);
+        }
+        [HttpPost("SecoundAdd")]
+        public async Task<IActionResult> SecoundAdd(CreateCategoryDto createCategoryDto, CancellationToken cancellationToken)
+        {
+            var result = await _mediator.Send(new CreateCategoryCommand() {CreateCategoryDto= createCategoryDto }  );
             return Ok(result);
         }
         [HttpGet("GetAll")]
