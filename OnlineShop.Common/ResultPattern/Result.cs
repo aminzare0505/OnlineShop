@@ -28,6 +28,14 @@ namespace OnlineShop.Common.ResultPattern
         {
             return new Result<T> { IsSuccess = false, Message = string.IsNullOrEmpty(Message) ? "Operation is failed" : Message, Errors = new List<string>() { Errors } };
         }
+        public static Result<T> FailedResult()
+        {
+            return new Result<T> { IsSuccess = false, Message =  "Operation is failed"};
+        }
+        public static Result<T> FailedResult(string Errors)
+        {
+            return new Result<T> { IsSuccess = false, Message = "Operation is failed", Errors = new List<string>() { Errors } };
+        }
     }
     public class VoidResult
     {

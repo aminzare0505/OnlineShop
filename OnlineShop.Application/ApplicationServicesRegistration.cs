@@ -1,6 +1,9 @@
 ﻿using FluentValidation;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using OnlineShop.Application.Abstractions;
 using OnlineShop.Application.Behaviors;
 using OnlineShop.Application.Dto.Category;
@@ -20,13 +23,27 @@ namespace OnlineShop.Application
 {
     public static class ApplicationServicesRegistration
     {
-        public static IServiceCollection ApplicationConfiguration(this IServiceCollection Service)
+        public static IServiceCollection ApplicationConfiguration(this IServiceCollection Service,IConfiguration configuration)
         {
             Service.AddMediatR(mr => mr.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly() ));
             Service.AddSingleton(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
             Service.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
             Service.AddValidatorsFromAssemblyContaining<IValidation>(); // register validators
             Service.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+            Service.AddAuthentication(option =>
+            {
+                option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(opt =>
+            {
+                opt.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateLifetime = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Key"]))
+                };
+            });
+
             return Service;
 
             //Service.AddScoped(typeof(IValidator<>), typeof(ICommand<>));

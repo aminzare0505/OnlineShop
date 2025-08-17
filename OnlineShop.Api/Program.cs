@@ -13,7 +13,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.ApplicationConfiguration();
+builder.Services.ApplicationConfiguration(builder.Configuration);
 builder.Services.PersistenceConfiguration(builder.Configuration);
 
 builder.Services.AddTransient<ExceptionHandlingMiddleware>();

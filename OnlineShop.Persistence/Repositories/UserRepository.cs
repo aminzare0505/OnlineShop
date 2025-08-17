@@ -26,5 +26,9 @@ namespace OnlineShop.Persistence.Repositories
         {
             return await _dbContext.User.FindAsync(id);
         }
+        public async Task<User> GetUserByUserName(string userName)
+        {
+            return await _dbContext.User.SingleOrDefaultAsync(s=>s.UserName==userName);
+        }
     }
 }

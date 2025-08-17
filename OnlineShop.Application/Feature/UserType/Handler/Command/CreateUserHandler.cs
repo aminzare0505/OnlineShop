@@ -39,6 +39,7 @@ namespace OnlineShop.Application.Feature.UserType.Handler.Command
             var salt = PasswordHashExtension.GenerateSalt();
 
             userEntity.password = userEntity.password.Hashpassword(salt);
+            userEntity.Salt = salt;
             await _userRepository.Add(userEntity);
             return VoidResult.VoidSuccessResult();
         }

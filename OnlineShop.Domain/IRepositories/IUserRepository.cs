@@ -11,5 +11,6 @@ namespace OnlineShop.Domain.IRepositories
     {
         Task<bool> CheckWithUserName(string username);
         Task<User> GetUserById(Guid id);
+        Task<User> GetUserByUserName(string userName);
     }
 }
