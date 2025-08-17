@@ -15,9 +15,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.ApplicationConfiguration();
 builder.Services.PersistenceConfiguration(builder.Configuration);
-builder.Services.AddScoped<IValidator<CreateCategoryCommand>, OnlineShop.Application.Feature.CategoryType.Handler.Command.CreateCategoryCommandValidation>();
-//builder.Services.AddMediatR(mr=>mr.RegisterServicesFromAssembly( typeof(Program).Assembly));
-//builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+
 builder.Services.AddTransient<ExceptionHandlingMiddleware>();
 var app = builder.Build();
  
@@ -34,3 +32,8 @@ app.UseAuthorization();
 app.MapControllers();
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.Run();
+
+
+//builder.Services.AddScoped<IValidator<CreateCategoryCommand>, OnlineShop.Application.Feature.CategoryType.Handler.Command.CreateCategoryCommandValidation>();
+//builder.Services.AddMediatR(mr=>mr.RegisterServicesFromAssembly( typeof(Program).Assembly));
+//builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));

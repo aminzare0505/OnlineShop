@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using OnlineShop.Application.Abstractions;
 using OnlineShop.Application.Behaviors;
 using OnlineShop.Application.Dto.Category;
 using OnlineShop.Application.Dto.Category.Validator;
@@ -24,11 +25,15 @@ namespace OnlineShop.Application
             Service.AddMediatR(mr => mr.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly() ));
             Service.AddSingleton(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
             Service.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
-           // Service.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly() );
-          //  Service.AddScoped(IValidator<CreateCategoryCommand, CreateCategoryCommandValidation>);
-            // Service.AddScoped<IValidator<CreateCategoryCommand>, CreateCategoryCommandValidation>();
+            Service.AddValidatorsFromAssemblyContaining<IValidation>(); // register validators
             Service.AddAutoMapper(Assembly.GetExecutingAssembly());
             return Service;
+
+            //Service.AddScoped(typeof(IValidator<>), typeof(ICommand<>));
+            // Service.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly() );
+            //  Service.AddScoped(IValidator<CreateCategoryCommand, CreateCategoryCommandValidation>);
+            // Service.AddScoped<IValidator<CreateCategoryCommand>, CreateCategoryCommandValidation>();
+            //Service.AddValidatorsFromAssembly(typeof(AbstractValidator<>).Assembly);
         }
     }
 }

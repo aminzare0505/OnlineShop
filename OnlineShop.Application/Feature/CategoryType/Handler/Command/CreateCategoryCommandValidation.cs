@@ -1,15 +1,10 @@
 ﻿using FluentValidation;
-using OnlineShop.Application.Dto.Category;
+using OnlineShop.Application.Abstractions;
 using OnlineShop.Application.Feature.CategoryType.Request.Command;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineShop.Application.Feature.CategoryType.Handler.Command
 {
-    public sealed class CreateCategoryCommandValidation : AbstractValidator<CreateCategoryCommand>
+    public sealed class CreateCategoryCommandValidation : Validation<CreateCategoryCommand>
     {
         public CreateCategoryCommandValidation()
         {
