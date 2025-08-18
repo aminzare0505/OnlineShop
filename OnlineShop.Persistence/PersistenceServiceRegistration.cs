@@ -8,7 +8,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore; 
+using Microsoft.EntityFrameworkCore;
+using OnlineShop.Domain.Common;
+using OnlineShop.Persistence.Provider;
 
 namespace OnlineShop.Persistence
 {
@@ -16,9 +18,10 @@ namespace OnlineShop.Persistence
     {
         public static IServiceCollection PersistenceConfiguration(this IServiceCollection service, IConfiguration config)
         {
-            service.AddScoped<ICategoryRepository, CategoryRepository>();
-            service.AddScoped<IProductRepository, ProductRepository>();
-            service.AddScoped<IUserRepository,UserRepository>();
+            //service.AddScoped<ICategoryRepository, CategoryRepository>();
+            //service.AddScoped<IProductRepository, ProductRepository>();
+            //service.AddScoped<IUserRepository,UserRepository>();
+            service.AddRepositories();
             service.AddDbContext<ShopDbContext>(opt=>opt.UseSqlServer(config.GetConnectionString("OnlineShopConnectionString")));
             return service;
         }

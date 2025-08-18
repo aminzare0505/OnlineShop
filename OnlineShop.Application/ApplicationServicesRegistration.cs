@@ -40,7 +40,12 @@ namespace OnlineShop.Application
                 opt.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateLifetime = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Key"]))
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Key"])),
+                    ValidateIssuer = true,
+                    ValidateAudience = true, 
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = "myApp",
+                    ValidAudience = "myAppUsers" 
                 };
             });
 

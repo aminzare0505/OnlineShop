@@ -14,6 +14,7 @@ namespace OnlineShop.Domain.Entities
         public string UserName { get; set; }
         public string Email { get; set; }
         public string password { get; set; }
+        public string Role { get; set; }
         public string Salt { get; set; }
 
         public User()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnlineShop.Domain.Common;
+using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Domain.IRepositories
 {
-    public interface IGenericRepository<TEntity> where TEntity:class
+    public interface IGenericRepository<TEntity> where TEntity:class//, IRepository
     {
         Task<TEntity> Get(int Id);
         Task  Update(TEntity entity);

@@ -44,14 +44,18 @@ namespace OnlineShop.Application.Feature.UserType.Handler.Query
             var claims = new[]
             {
             new Claim(JwtRegisteredClaimNames.Sub, request.userDto.UserName),
-            new Claim(JwtRegisteredClaimNames.Jti, request.userDto.Id.ToString())
+            new Claim(JwtRegisteredClaimNames.Jti, user.Id.ToString()),
+            new Claim(ClaimTypes.Role,user.Role)
+           
         };
             var Key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Key"]));
             var Card = new SigningCredentials(Key, SecurityAlgorithms.HmacSha256);
             var token = new JwtSecurityToken(
                 claims: claims,
                 expires: DateTime.Now.AddHours(1),
-                signingCredentials: Card
+                signingCredentials: Card,
+                 issuer: "myApp",
+                audience: "myAppUsers"
             );
             return Result<string>.SuccessResult(new JwtSecurityTokenHandler().WriteToken(token).ToString());
         }

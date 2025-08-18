@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OnlineShop.Application.Dto.Category;
 using OnlineShop.Application.Feature.CategoryType.Request.Command;
@@ -36,6 +37,7 @@ namespace OnlineShop.Api.Controllers.Catgeory
             return Ok(result);
         }
         [HttpGet("GetAll")]
+        [Authorize]
         public async Task<IActionResult> GetAll()
         {
             var result = await _mediator.Send(new GetAllCategoryRequest());

@@ -1,9 +1,7 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using OnlineShop.Application.Dto.Product;
 using OnlineShop.Application.Dto.User;
-using OnlineShop.Application.Feature.ProductType.Request.Command;
-using OnlineShop.Application.Feature.ProductType.Request.Query;
 using OnlineShop.Application.Feature.UserType.Request.Command;
 using OnlineShop.Application.Feature.UserType.Request.Query;
 
@@ -24,6 +22,7 @@ namespace OnlineShop.Api.Controllers.User
             return Ok(result);
         }
         [HttpPost("Register")]
+        [Authorize(Roles ="Admin")]
         public async Task<IActionResult> Register(CreateUserDto createUserDto)
         {
             var result = await _mediator.Send(new CreateUserRequest() {CreateUserDto = createUserDto });
